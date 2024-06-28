@@ -168,6 +168,7 @@ $db = new Database();
                       <td>:</td>
                       <td class="ps-2"><?= $db->date_format($result['date']); ?></td>
                     </tr>
+                    
                     <tr>
                       <td class="pt-3"><img src="<?= $result['image_link'] ?>" alt="" width="150"></td>
                     </tr>
