@@ -9,17 +9,17 @@ $db = new Database();
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0" />
   <meta name="description" content="" />
-  <link rel="icon" type="image/x-icon" href="assets/vendor/img/favicon/favicon.ico" />
+  <link rel="icon" type="image/x-icon" href="<?= $db->url(); ?>/SUNFIX/Soun_tek/assets/vendor/img/favicon/favicon.ico" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Public+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&ampdisplay=swap" rel="stylesheet" />
   <link rel="stylesheet" href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/js/v4-shims.min.js">
-  <link rel="stylesheet" href="assets/vendor/css/rtl/front-page.css" />
-  <script src="assets/vendor/js/helpers.js"></script>
-  <script src="assets/vendor/js/template-customizer.js"></script>
-  <script src="assets/vendor/js/front-config.js"></script>
+  <link rel="stylesheet" href="<?= $db->url(); ?>/SUNFIX/Soun_tek/assets/vendor/css/rtl/front-page.css" />
+  <script src="<?= $db->url(); ?>/SUNFIX/Soun_tek/assets/vendor/js/helpers.js"></script>
+  <script src="<?= $db->url(); ?>/SUNFIX/Soun_tek/assets/vendor/js/template-customizer.js"></script>
+  <script src="<?= $db->url(); ?>/SUNFIX/Soun_tek/assets/vendor/js/front-config.js"></script>
   <title>Front Pages</title>
 </head>
 
@@ -37,7 +37,7 @@ $db = new Database();
           <!-- Mobile menu toggle: End-->
           <a href="landing-page.html" class="app-brand-link">
             <span>
-              <img src="assets/vendor/img/logos/logo-1.png" alt="" width="130">
+              <img src="<?= $db->url(); ?>/SUNFIX/Soun_tek/assets/vendor/img/logos/logo-1.png" alt="" width="130">
             </span>
           </a>
         </div>
@@ -141,7 +141,7 @@ $db = new Database();
     <!-- Results: Start -->
     <?php
     if (isset($_POST['id_nbr']) && isset($_POST['code_nbr'])) {
-      $con = "id=" . $_POST['id_nbr'] . " && code=" . $_POST['code_nbr'] . "";
+      $con = "cus_products.id='" . $_POST['id_nbr'] . "' AND cus_products.code='" . $_POST['code_nbr'] . "'";
       $result = $db->getProductByCode($con);
       if ($result) {
     ?>
@@ -156,45 +156,45 @@ $db = new Database();
                     <tr>
                       <td class="pe-4">REPORT ID NBR</td>
                       <td>:</td>
-                      <td class="ps-2 fw-bold text-black">ADP20789</td>
+                      <td class="ps-2 fw-bold text-black"><?= $result['nbr_id']; ?></td>
                     </tr>
                     <tr>
                       <td class="pe-4">CODE</td>
                       <td>:</td>
-                      <td class="ps-2">28406-15</td>
+                      <td class="ps-2"><?= $result['code']; ?></td>
                     </tr>
                     <tr>
                       <td class="pe-4">DATE (DD/MM/YY)</td>
                       <td>:</td>
-                      <td class="ps-2">26/06/2024</td>
+                      <td class="ps-2"><?= $db->date_format($result['date']); ?></td>
                     </tr>
                     <tr>
-                      <td class="pt-3"><img src="assets/img/products/diamond.png" alt="" width="150"></td>
+                      <td class="pt-3"><img src="<?= $result['image_link'] ?>" alt="" width="150"></td>
                     </tr>
                     <tr>
                       <td class="pe-4 pt-3">FAMILY/SPECIE</td>
                       <td class="pt-3">:</td>
-                      <td class="ps-2 pt-3 fw-bold text-black">NATURAL ZIRCON</td>
+                      <td class="ps-2 pt-3 fw-bold text-black"><?= $result['cate_name'] ?></td>
                     </tr>
                     <tr>
                       <td class="pe-4">TRADE NAME</td>
                       <td>:</td>
-                      <td class="ps-2 text-danger fw-bold">BLUE ZIRCON</td>
+                      <td class="ps-2 text-danger fw-bold"><?= $result['trade_name'] ?></td>
                     </tr>
                     <tr>
                       <td class="pe-4">WEIGHT</td>
                       <td>:</td>
-                      <td class="ps-2">11.86 CARATS</td>
+                      <td class="ps-2"><?= $result['p_weight'] ?> CARATS</td>
                     </tr>
                     <tr>
                       <td class="pe-4">COLOR</td>
                       <td>:</td>
-                      <td class="ps-2">NEON BLUE</td>
+                      <td class="ps-2"><?= $result['var_name'] ?></td>
                     </tr>
                     <tr>
                       <td class="pe-4">SHAPE</td>
                       <td>:</td>
-                      <td class="ps-2">OVAL</td>
+                      <td class="ps-2"><?= $result['shape'] ?></td>
                     </tr>
                     <tr>
                       <td class="pe-4">DEMESIONS</td>
@@ -204,17 +204,17 @@ $db = new Database();
                     <tr>
                       <td class="pe-4">CROWN CUT</td>
                       <td>:</td>
-                      <td class="ps-2">BRILLIANT</td>
+                      <td class="ps-2"><?= $result['crown_cut'] ?></td>
                     </tr>
                     <tr>
                       <td class="pe-4">PAVILLION CUT</td>
                       <td>:</td>
-                      <td class="ps-2">STEP</td>
+                      <td class="ps-2"><?= $result['pavillion_cut'] ?></td>
                     </tr>
                     <tr>
                       <td class="pe-4 pt-4">ORIGIN</td>
                       <td class="pt-4">:</td>
-                      <td class="ps-2 pt-4 fw-bold text-black">CAMBODIA</td>
+                      <td class="ps-2 pt-4 fw-bold text-black"><?= $result['origin'] ?></td>
                     </tr>
                   </table>
                   <div>
@@ -225,42 +225,42 @@ $db = new Database();
                     <tr>
                       <td class="pe-4">REFRACTIVE INDEX</td>
                       <td>:</td>
-                      <td class="ps-2">OTL</td>
+                      <td class="ps-2"><?= $result['refractive_index'] ?></td>
                     </tr>
                     <tr>
                       <td class="pe-4">SPECIFIC GRAVITY</td>
                       <td>:</td>
-                      <td class="ps-2">4.17</td>
+                      <td class="ps-2"><?= $result['specific_gravity'] ?></td>
                     </tr>
                     <tr>
                       <td class="pe-4">POLARISCOPE</td>
                       <td>:</td>
-                      <td class="ps-2">DR</td>
+                      <td class="ps-2"><?= $result['polarisscope'] ?></td>
                     </tr>
                     <tr>
                       <td class="pe-4">SPECTROSCOPE 400-700NM</td>
                       <td>:</td>
-                      <td class="ps-2">diagnostic absorbtion</td>
+                      <td class="ps-2"><?= $result['spectroscope'] ?></td>
                     </tr>
                     <tr>
                       <td class="pe-4">STANDARD FLUORESCENCE LW/SW</td>
                       <td>:</td>
-                      <td class="ps-2">NOT TESTED 0</td>
+                      <td class="ps-2"><?= $result['standard_fluorescence'] ?></td>
                     </tr>
                     <tr>
                       <td class="pe-4">DICHROSCOPE</td>
                       <td>:</td>
-                      <td class="ps-2">NOT TESTED</td>
+                      <td class="ps-2"><?= $result['dichroscope'] ?></td>
                     </tr>
                     <tr>
                       <td class="pe-4">COBALT/CHROMIUM FILTER</td>
                       <td>:</td>
-                      <td class="ps-2">NOT TESTED</td>
+                      <td class="ps-2"><?= $result['cobalt'] ?></td>
                     </tr>
                     <tr>
                       <td class="pe-4">MICROSCOPE MAGNIFICATION 80X</td>
                       <td>:</td>
-                      <td class="ps-2">standard observation;</td>
+                      <td class="ps-2"><?= $result['microscope'] ?></td>
                     </tr>
                   </table>
                 </div>
@@ -300,8 +300,8 @@ $db = new Database();
 </footer>
 <!-- Footer: End -->
 <!-- Main JS -->
-<script src="assets/vendor/js/front-main.js"></script>
-<script src="assets/vendor/js/bootstrap.js"></script>
+<script src="<?= $db->url(); ?>/SUNFIX/Soun_tek/assets/vendor/js/front-main.js"></script>
+<script src="<?= $db->url(); ?>/SUNFIX/Soun_tek/assets/vendor/js/bootstrap.js"></script>
 </body>
 
 </html>
