@@ -1,0 +1,19 @@
+** new field in to product
+
+ALTER TABLE cus_products
+ADD COLUMN nbr_id varchar(50),
+ADD COLUMN trade_name varchar(50),
+ADD COLUMN shape varchar(50),
+ADD COLUMN crown_cut varchar(50),
+ADD COLUMN pavillion_cut varchar(50),
+ADD COLUMN refractive_index varchar(50),
+ADD COLUMN specific_gravity varchar(50),
+ADD COLUMN polarisscope varchar(50),
+ADD COLUMN spectroscope varchar(50),
+ADD COLUMN standard_fluorescence varchar(50),
+ADD COLUMN origin varchar(50),
+ADD COLUMN dichroscope varchar(50),
+ADD COLUMN cobalt varchar(50),
+ADD COLUMN microscope varchar(50),
+ADD COLUMN date DATETIME,
+ADD COLUMN image_link TEXT;
