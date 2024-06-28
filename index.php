@@ -120,7 +120,7 @@ $db = new Database();
               <div class="card-body">
                 <form action="index.php" method="POST">
                   <div class="row">
-                    <h1>Hello World.</h1>
+                    <h1>Change again.</h1>
                   </div>
                   <div class="row g-3">
                     <div class="col-md-6">
