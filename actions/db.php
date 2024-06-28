@@ -1,5 +1,4 @@
 <?php
-
 include_once("data.php");
 class Database extends Connect
 {
@@ -15,7 +14,7 @@ class Database extends Connect
     }
     function getProductByCode($con = false)
     {
-        $sql = "SELECT * FROM cus_products WHERE $con LIMIT 0,1";
+        $sql = "SELECT cus_products.*,cus_categories.name as cate_name,cus_product_variants.name as var_name FROM cus_products LEFT JOIN cus_categories ON cus_categories.id = cus_products.category_id LEFT JOIN cus_product_variants ON cus_product_variants.product_id = cus_products.id WHERE $con LIMIT 0,1";
         $result = $this->con->query($sql);
         if ($result->num_rows > 0) {
             $row = $result->fetch_array();
@@ -23,5 +22,26 @@ class Database extends Connect
         } else {
             return false;
         }
+    }
+
+    public function date_format($sdate)
+    {
+        if ($sdate) {
+            return date("d/m/Y", strtotime($sdate));
+        } else {
+            return '0000-00-00';
+        }
+    }
+
+    function url()
+    {
+        // return sprintf(
+        //     "%s://%s%s",
+        //     isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] != 'off' ? 'https' : 'http',$_SERVER['SERVER_NAME'],$_SERVER['REQUEST_URI']
+        // );
+        $protocol = isset($_SERVER['HTTPS']) &&
+            $_SERVER['HTTPS'] === 'on' ? 'https://' : 'http://';
+        $base_url = $protocol . $_SERVER['HTTP_HOST'] . '/';
+        return $base_url;
     }
 }
