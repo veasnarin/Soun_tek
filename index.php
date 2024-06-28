@@ -119,9 +119,6 @@ $db = new Database();
             <div class="card">
               <div class="card-body">
                 <form action="index.php" method="POST">
-                  <div class="row">
-                    <h1>Change again.</h1>
-                  </div>
                   <div class="row g-3">
                     <div class="col-md-6">
                       <input type="text" class="form-control" name="id_nbr" value="<?= isset($_POST['id_nbr']) ? $_POST['id_nbr'] : '' ?>" id="contact-form-fullname" placeholder="#ID NBR." required />
