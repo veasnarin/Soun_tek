@@ -2,7 +2,6 @@
 
 ALTER TABLE cus_products
 ADD COLUMN nbr_id varchar(50),
-ADD COLUMN trade_name varchar(50),
 ADD COLUMN shape varchar(50),
 ADD COLUMN crown_cut varchar(50),
 ADD COLUMN pavillion_cut varchar(50),

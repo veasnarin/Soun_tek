@@ -141,7 +141,7 @@ $db = new Database();
     <!-- Results: Start -->
     <?php
     if (isset($_POST['id_nbr']) && isset($_POST['code_nbr'])) {
-      $con = "cus_products.id='" . $_POST['id_nbr'] . "' AND cus_products.code='" . $_POST['code_nbr'] . "'";
+      $con = "cus_products.nbr_id='" . $_POST['id_nbr'] . "' AND cus_products.code='" . $_POST['code_nbr'] . "'";
       $result = $db->getProductByCode($con);
       if ($result) {
     ?>
@@ -179,7 +179,7 @@ $db = new Database();
                     <tr>
                       <td class="pe-4">TRADE NAME</td>
                       <td>:</td>
-                      <td class="ps-2 text-danger fw-bold"><?= $result['trade_name'] ?></td>
+                      <td class="ps-2 text-danger fw-bold"><?= $result['name'] ?></td>
                     </tr>
                     <tr>
                       <td class="pe-4">WEIGHT</td>
