@@ -1,4 +1,4 @@
-** new field in to product
+** new field into product
 
 ALTER TABLE cus_products
 ADD COLUMN nbr_id varchar(50),
