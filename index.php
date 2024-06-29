@@ -25,7 +25,7 @@ if (isset($_POST['id_nbr']) && isset($_POST['code_nbr'])) {
   <script src="<?= $db->url(); ?>/SUNFIX/Soun_tek/assets/vendor/js/helpers.js"></script>
   <script src="<?= $db->url(); ?>/SUNFIX/Soun_tek/assets/vendor/js/template-customizer.js"></script>
   <script src="<?= $db->url(); ?>/SUNFIX/Soun_tek/assets/vendor/js/front-config.js"></script>
-  <title><?= isset($_POST['id_nbr']) && isset($_POST['code_nbr']) && $result == true ? $result['name'] : 'STCO' ?></title>
+  <title><?= isset($_POST['id_nbr']) && isset($_POST['code_nbr']) && $result == true ? $result['name'] : 'SOUN TEK' ?></title>
 </head>
 
 <body>
