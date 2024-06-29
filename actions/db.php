@@ -35,13 +35,8 @@ class Database extends Connect
 
     function url()
     {
-        // return sprintf(
-        //     "%s://%s%s",
-        //     isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] != 'off' ? 'https' : 'http',$_SERVER['SERVER_NAME'],$_SERVER['REQUEST_URI']
-        // );
-        $protocol = isset($_SERVER['HTTPS']) &&
-            $_SERVER['HTTPS'] === 'on' ? 'https://' : 'http://';
-        $base_url = $protocol . $_SERVER['HTTP_HOST'] . '/';
+        $protocol = isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? 'https://' : 'http://';
+        $base_url = $protocol . $_SERVER['HTTP_HOST'] . dirname($_SERVER['PHP_SELF']);
         return $base_url;
     }
 }
