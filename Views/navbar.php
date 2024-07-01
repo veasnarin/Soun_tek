@@ -23,11 +23,11 @@
                 </button>
                 <ul class="navbar-nav me-auto">
                     <li class="nav-item">
-                        <a class="nav-link fw-medium" aria-current="page" href="landing-page.html#landingHero">Home</a>
+                        <a class="nav-link fw-medium" aria-current="page" href="index.php#landingHero">Home</a>
                     </li>
 
                     <li class="nav-item">
-                        <a class="nav-link fw-medium" href="landing-page.html#landingContact">Contact us</a>
+                        <a class="nav-link fw-medium" href="index.php#landingContact">Contact us</a>
                     </li>
 
                 </ul>

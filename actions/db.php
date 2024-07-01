@@ -7,7 +7,6 @@ class Database extends Connect
     {
         date_default_timezone_set("asia/phnom_penh");
         $this->con = new mysqli("$this->host", "$this->username", "$this->pass", "$this->db");
-        $this->con->set_charset("utf-8");
         if (!$this->con) {
             echo "Error Connection";
         }
